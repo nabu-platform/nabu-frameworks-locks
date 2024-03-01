@@ -1,0 +1,14 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="name" type="java.lang.String"/>
+        <field comment="A unique identifier for whoever (or whatever) locked it" name="lockedById" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+        <field comment="Some locks are global, some are specific per item" minOccurs="0" name="lockedInstanceId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+        <field comment="You can force an unlock, even if you are not the current owner of the lock" minOccurs="0" name="force" type="java.lang.Boolean"/>
+    </structure>
+    <structure name="output">
+        <field name="unlocked" type="java.lang.Boolean"/>
+    </structure>
+    <structure collectionName="lockDefinitions" definition="nabu.frameworks.locks.crud.lockDefinition.types.output" enricher="nabu.frameworks.locks.crud.lockDefinition.services.list" minOccurs="0" name="lockDefinition" persister="nabu.frameworks.locks.crud.lockDefinition.batch.updateAll"/>
+    <structure collectionName="lockInstances" definition="nabu.frameworks.locks.crud.lockInstance.types.output" enricher="nabu.frameworks.locks.crud.lockInstance.services.list" minOccurs="0" name="lockInstance" persister="nabu.frameworks.locks.crud.lockInstance.batch.updateAll"/>
+    <field minOccurs="0" name="date" type="java.util.Date"/>
+</structure>

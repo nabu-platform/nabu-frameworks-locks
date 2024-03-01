@@ -1,0 +1,290 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="e47d06d1ba7a4a1b9e501f055f6009e7"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Set default locked to false"
+			disabled="false"
+			id="36c70ae028084f53aceb3704d5348663"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="ea783b4a6ab7474d8c96c9aa0c0c10be"
+				serviceId="nabu.frameworks.locks.crud.lockDefinition.services.list"
+				resultName="resultb10da90d49944a95ab9b54c902754fd9"
+				temporaryMapping="true"
+				x="127"
+				y="51"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5350967418454e819440c269edde945c"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/name</from>
+				<to>filter/name[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="75854e2fb0434509ab75002370fe2ff0"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultb10da90d49944a95ab9b54c902754fd9/results[0]</from>
+			<to>lockDefinition</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="0312d791f66c4bcfa4abe9403bb5252d"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>false</from>
+			<to>output/unlocked</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Break"
+			disabled="false"
+			id="0aecbd4c9b1a40c39ad6c249ae7256a0"
+			label="!lockDefinition"
+			lineNumber="3">
+		<count>1</count>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="81e797397da5480bbf20716b96cdbc80"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="ec06c3ee2656411992093f8103a774c5"
+				serviceId="nabu.frameworks.locks.crud.lockInstance.services.list"
+				resultName="resultb34aeba4e2264f378a868e30c32dafc0"
+				temporaryMapping="true"
+				x="425"
+				y="114"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="db9ce1d57386400a99c2fc1346e27ebf"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>lockDefinition/id</from>
+				<to>filter/lockDefinitionId[0]</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b91e865089114dfeb16db3c6b071e113"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/lockedInstanceId</from>
+				<to>filter/lockedInstanceId[0]</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="4a01f116c5a64865b5ce32ba84b5a4c3"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/lockedById</from>
+				<to>filter/lockedById[0]</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="cd45e7694e53425cb81ea53a46389ead"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result5cd94ef50b7b4f38928dd031d2182b4c/date</from>
+				<to>filter/activeAt</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="4aacf5acabd7468fbe834be74c724b6d"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultb34aeba4e2264f378a868e30c32dafc0/results[0]</from>
+			<to>lockInstance</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="139ae44256664995a3ddc63a99723ccf"
+				serviceId="nabu.utils.Date.now"
+				resultName="result5cd94ef50b7b4f38928dd031d2182b4c"
+				temporaryMapping="true"
+				x="66"
+				y="457"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="db173954053c49f0bebef01c82bccdec"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result5cd94ef50b7b4f38928dd031d2182b4c/date</from>
+			<to>date</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+			disabled="false"
+			id="a6a24faf9b32405dbb6064b701518ff7"
+			label="lockInstance/lockedInstanceId != null &amp;&amp; input/lockedInstanceId == null"
+			lineNumber="5"
+			message="Can't do a global unlock for an instantiated lock"
+			whitelist="false" xsi:nil="true"/>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+			comment="We either have a lock instance or we don't"
+			disabled="false"
+			id="785322de51a14e97a2fbfa7ba358a68f"
+			lineNumber="6">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="If we don't, we consider the resource unlocked"
+				disabled="false"
+				id="2d9c879dffaa422498fc1d0ae6f212f5"
+				label="lockInstance == null"
+				lineNumber="7">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ea8759c4af40422d9c5d081f0fb22699"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>true</from>
+				<to>output/unlocked</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+				comment="If the lock is yours or we want to forcibly unlock it, we do so"
+				disabled="false"
+				id="096101fd5244407aad3cfd29a49e470e"
+				label="lockInstance/lockedById == input/lockedById || input/force == true"
+				lineNumber="8">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Set the expiry to _now_ minus 1s for clock drift"
+					disabled="false"
+					id="73aa18b54656477f84232df26d94a22e"
+					lineNumber="9">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="2c7cb34445fa4a5eac7fb96b7dc53380"
+						serviceId="nabu.utils.Date.increment"
+						resultName="resultecfe1f3158d746f3b1b63631ab67aaf8"
+						temporaryMapping="true"
+						x="154"
+						y="175"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="47c027c86f5f410f921269f250642047"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>-1</from>
+						<to>increment</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="18b942e94e8a4890bd16aef4b1866463"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>SECONDS</from>
+						<to>unit</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="334661223ca143a4946ad754c927cca3"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>date</from>
+						<to>start</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="223c7886df1d460db41f987c81fa70ac"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>UTC</from>
+						<to>timezone</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="5cfa07384f274189a6d3bbc5228c31eb"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>resultecfe1f3158d746f3b1b63631ab67aaf8/date</from>
+					<to>lockInstance/expires</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Update and set true"
+					disabled="false"
+					id="ca9784e63f9343538b12c3d67cd12784"
+					lineNumber="10">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="47cb87d8730a46dabf6238653cc3d7d1"
+						serviceId="nabu.services.jdbc.Services.update"
+						resultName="resultd8a072627297432fa13f12cb2c61e01e"
+						temporaryMapping="true"
+						x="92"
+						y="57"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="4ef8d5e87fbe42cea594f756da727af7"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>lockInstance</from>
+						<to>instances[0]</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="13e30e81ffc948cc89b1ae4a09972d29"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>true</from>
+					<to>output/unlocked</to>
+				</steps>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Not yours to unlock"
+				disabled="false"
+				id="ac1fbbaae2834f0985067dd097ee2fbe"
+				lineNumber="11">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="fa3dd4a3ec1b41b0a2b4dbb22f33c761"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>false</from>
+				<to>output/unlocked</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>
