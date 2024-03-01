@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.data.model.DataModelManager" created="2024-03-01T08:36:11.591+01:00" lastModified="2024-03-01T08:39:03.266+01:00" leaf="true" version="5">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.locks.database.types.lockDefinition</references>
+    <references>nabu.frameworks.locks.database.types.lockInstance</references>
+</node>

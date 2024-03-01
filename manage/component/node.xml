@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.web.component.WebComponentManager" created="2024-03-01T08:52:57.861+01:00" lastModified="2024-03-01T08:53:06.353+01:00" leaf="true" version="4">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.locks.crud.lockDefinition</references>
+    <references>nabu.frameworks.locks.crud.lockInstance</references>
+</node>

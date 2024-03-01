@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-01T08:38:12.809+01:00" lastModified="2024-03-01T08:51:46.222+01:00" leaf="true" version="33">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>java.util.Date</references>
+    <references>nabu.utils.Date.now</references>
+    <references>java.util.UUID</references>
+    <references>nabu.frameworks.locks.crud.lockDefinition.services.list</references>
+    <references>nabu.frameworks.locks.crud.lockDefinition.services.create</references>
+    <references>nabu.services.jdbc.Services.update</references>
+    <references>nabu.frameworks.locks.crud.lockDefinition.types.output</references>
+    <references>nabu.utils.Lock.lock</references>
+    <references>nabu.frameworks.locks.crud.lockInstance.types.output</references>
+    <references>nabu.frameworks.locks.crud.lockInstance.services.list</references>
+    <references>nabu.frameworks.locks.crud.lockInstance.services.create</references>
+    <references>java.lang.Boolean</references>
+    <references>java.lang.String</references>
+    <references>nabu.utils.Lock.unlock</references>
+    <references>nabu.utils.Date.incrementDuration</references>
+</node>

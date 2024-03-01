@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webModule>
+    <webFragments>nabu.frameworks.locks.crud.lockDefinition</webFragments>
+    <webFragments>nabu.frameworks.locks.crud.lockInstance</webFragments>
+    <audience>MANAGER</audience>
+</webModule>
