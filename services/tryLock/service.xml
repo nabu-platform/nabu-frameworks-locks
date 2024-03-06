@@ -507,6 +507,15 @@
 						<from>true</from>
 						<to>output/locked</to>
 					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="77ec0905788343f38fc5b4a0fe0b18be"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>lockInstance/expires</from>
+						<to>output/expires</to>
+					</steps>
 				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
@@ -522,6 +531,15 @@
 						fixedValue="true">
 					<from>true</from>
 					<to>output/locked</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="14a91b6f28f84c44bd3b218bb4d5553c"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>lockInstance/expires</from>
+					<to>output/expires</to>
 				</steps>
 			</steps>
 		</steps>

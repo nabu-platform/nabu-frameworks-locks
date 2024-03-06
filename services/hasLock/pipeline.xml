@@ -6,7 +6,7 @@
     </structure>
     <structure name="output">
         <field name="locked" type="java.lang.Boolean"/>
-        <field minOccurs="0" name="expires" timezone="UTC" type="java.util.Date"/>
+        <field minOccurs="0" name="expires" type="java.util.Date"/>
     </structure>
     <structure collectionName="lockDefinitions" definition="nabu.frameworks.locks.crud.lockDefinition.types.output" enricher="nabu.frameworks.locks.crud.lockDefinition.services.list" minOccurs="0" name="lockDefinition" persister="nabu.frameworks.locks.crud.lockDefinition.batch.updateAll"/>
     <structure collectionName="lockInstances" definition="nabu.frameworks.locks.crud.lockInstance.types.output" enricher="nabu.frameworks.locks.crud.lockInstance.services.list" minOccurs="0" name="lockInstance" persister="nabu.frameworks.locks.crud.lockInstance.batch.updateAll"/>
