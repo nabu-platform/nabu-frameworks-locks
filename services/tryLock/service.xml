@@ -471,6 +471,15 @@
 						<from>result66f589baeee8432aa13709a38f6878cf/date</from>
 						<to>lockInstance/expires</to>
 					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="d99ae21872f84721be18a691c6bf7f9a"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>date</from>
+						<to>lockInstance/modified</to>
+					</steps>
 				</steps>
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Update and set true"

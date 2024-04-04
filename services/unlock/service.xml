@@ -89,15 +89,6 @@
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="4a01f116c5a64865b5ce32ba84b5a4c3"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>input/lockedById</from>
-				<to>filter/lockedById[0]</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
 					id="cd45e7694e53425cb81ea53a46389ead"
 					mask="false"
 					optional="false"
