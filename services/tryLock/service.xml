@@ -426,7 +426,7 @@
 					comment="It is your lock, update the timeout if necessary"
 					disabled="false"
 					id="096101fd5244407aad3cfd29a49e470e"
-					label="lockDefinition/refreshTimeoutOnUse"
+					label="lockDefinition/refreshTimeoutOnUse &amp;&amp; input/skipRefresh != true"
 					lineNumber="14">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						disabled="false"
